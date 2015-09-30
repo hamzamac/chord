@@ -1,4 +1,8 @@
 package dht
+import (
+	"fmt"
+	"strconv"
+)
 
 type Contact struct {
 	ip   string
@@ -11,6 +15,12 @@ type DHTNode struct {
 	predecessor *DHTNode
 	contact     Contact
 }
+
+const SIZE int = 8 
+
+var Ring [SIZE] *DHTNode
+
+
 
 func makeDHTNode(nodeId *string, ip string, port string) *DHTNode {
 	dhtNode := new(DHTNode)
@@ -32,6 +42,8 @@ func makeDHTNode(nodeId *string, ip string, port string) *DHTNode {
 
 func (dhtNode *DHTNode) addToRing(newDHTNode *DHTNode) {
 	// TODO
+	i, _ := strconv.ParseInt(newDHTNode.nodeId, 10, 0)
+	Ring[i]=newDHTNode
 }
 
 func (dhtNode *DHTNode) lookup(key string) *DHTNode {
@@ -51,6 +63,14 @@ func (dhtNode *DHTNode) responsible(key string) bool {
 
 func (dhtNode *DHTNode) printRing() {
 	// TODO
+	
+	id, _ := strconv.ParseInt(dhtNode.nodeId, 10,0)
+	for  i := int(id); i < int(id)+SIZE; i++  {
+		if Ring[i%SIZE]!= nil{
+			fmt.Println(i%SIZE)
+		}
+
+	}
 }
 
 func (dhtNode *DHTNode) testCalcFingers(m int, bits int) {
