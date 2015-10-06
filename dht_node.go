@@ -133,8 +133,10 @@ func nodeDistance(s int,d int) int{
 }
 
 func (dhtNode *DHTNode) fingerLookup(target int,bits int) *DHTNode {
-	fmt.Println("->lookup start")
 	bits--
+	fmt.Println("->lookup start")
+	//fmt.Println(bits)
+	
 	//jump half of the ring in invers exponential
 	id1, _ := strconv.ParseInt(dhtNode.nodeId, 10, 0)
 	id1bint:= big.NewInt(int64(id1))
@@ -145,8 +147,8 @@ func (dhtNode *DHTNode) fingerLookup(target int,bits int) *DHTNode {
 	
 	x1, _ := strconv.ParseInt(id2.String(), 10, 0)
 	x2, _ := strconv.ParseInt(id1bint.String(), 10, 0)
-	x:=x1 + x2
-	id2bint:= big.NewInt(int64(x)%int64(SIZE))
+	x:=(x1 + x2)%int64(SIZE)
+	id2bint:= big.NewInt(x)
 	
 	fmt.Println(id2bint)
 	
@@ -154,12 +156,12 @@ func (dhtNode *DHTNode) fingerLookup(target int,bits int) *DHTNode {
 	
 	result:=between(id1bint.Bytes(), id2bint.Bytes(), key.Bytes())
 	fmt.Println(result)
-	id2int,_ := strconv.ParseInt(id2.String(), 10, 0)
+	//id2int,_ := strconv.ParseInt(id2.String(), 10, 0)
 	//if result is false continue lookup
 	if result==false {
-		fmt.Println("false, look for")
-		fmt.Println(Ring[id2int].nodeId)
-		return Ring[id2int].fingerLookup(target,bits)
+		fmt.Print("look from ")
+		fmt.Println(Ring[int(x)].nodeId)
+		return Ring[int(x)].fingerLookup(target,bits)
 	}
 	
 	//find closent from finger table
