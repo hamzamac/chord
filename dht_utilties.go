@@ -29,6 +29,10 @@ func between(id1, id2, key []byte) bool {
 	if bytes.Compare(key, id1) == 0 { // key == id1
 		return true
 	}
+	
+	if bytes.Compare(key, id2) == 0 { // key == id2
+		return true
+	}	
 
 	if bytes.Compare(id2, id1) == 1 { // id2 > id1
 		if bytes.Compare(key, id2) == -1 && bytes.Compare(key, id1) == 1 { // key < id2 && key > id1
@@ -47,17 +51,17 @@ func between(id1, id2, key []byte) bool {
 
 // (n + 2^(k-1)) mod (2^m)
 func calcFinger(n []byte, k int, m int) (string, []byte) {
-	fmt.Println("calulcating result = (n+2^(k-1)) mod (2^m)")
+	//fmt.Println("calulcating result = (n+2^(k-1)) mod (2^m)")
 
 	// convert the n to a bigint
 	nBigInt := big.Int{}
 	nBigInt.SetBytes(n)
 
-	fmt.Printf("n            %s\n", nBigInt.String())
+	//fmt.Printf("n            %s\n", nBigInt.String())
 
-	fmt.Printf("k            %d\n", k)
+	//fmt.Printf("k            %d\n", k)
 
-	fmt.Printf("m            %d\n", m)
+	//fmt.Printf("m            %d\n", m)
 
 	// get the right addend, i.e. 2^(k-1)
 	two := big.NewInt(2)
