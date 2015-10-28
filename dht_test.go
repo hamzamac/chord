@@ -3,7 +3,7 @@ package dht
 import (
 	"fmt"
 	"testing"
-	
+	//"bytes"	
 )
 
 func TestDHT1(t *testing.T) {
@@ -18,6 +18,11 @@ func TestDHT1(t *testing.T) {
 
 	node0b := makeDHTNode(&id0, "localhost", "1111")
 	node1b := makeDHTNode(&id1, "localhost", "1112")
+/*	fmt.Println(Index(node0b.nodeId,3))
+	fmt.Println(Index(node1b.nodeId,3))
+
+fmt.Println(GetFingerTable("localhost:1200"))
+*/
 	node2b := makeDHTNode(&id2, "localhost", "1113")
 	node3b := makeDHTNode(&id3, "localhost", "1114")
 	node4b := makeDHTNode(&id4, "localhost", "1115")
@@ -25,6 +30,7 @@ func TestDHT1(t *testing.T) {
 	node6b := makeDHTNode(&id6, "localhost", "1117")
 	node7b := makeDHTNode(&id7, "localhost", "1118")
 
+	//fmt.Println(node2b.nodeId)
 	
 	
 	node0b.addToRing(node0b)
@@ -36,10 +42,10 @@ func TestDHT1(t *testing.T) {
 	node3b.addToRing(node6b)
 	node3b.addToRing(node7b)
 
-	//fmt.Println("-> ring structure")
-	//node4b.printRing()
+	fmt.Println("-> ring structure")
+	node4b.printRing()
 	//fmt.Println("-> update ring")
-	updateRing()
+	//updateRing()
 	
 	//fmt.Println(node4b.lookup("03"))
 	//fmt.Println("-> print peers")
@@ -48,8 +54,8 @@ func TestDHT1(t *testing.T) {
 	//fmt.Println("-> print fingers")
 	//fmt.Println(node3b.printFinger(3,3).nodeId)
 	
-	fmt.Println("-> test lookup")
-	fmt.Println(node7b.fingerLookup(5,3).nodeId)	
+	//fmt.Println("-> test lookup")
+	//fmt.Println(node7b.fingerLookup(5,3).nodeId)	
 	
 /*
 	node3b.testCalcFingers(0, 3)
@@ -57,6 +63,13 @@ func TestDHT1(t *testing.T) {
 	node3b.testCalcFingers(2, 3)
 	node3b.testCalcFingers(3, 3)
 	*/
+	
+	//fmt.Println(between(str2byte("7"),str2byte("7"),str2byte("2")))
+	//fmt.Println(nodeDistance(5,4))
+	//fmt.Println(bytes.Compare(str2byte("7"),str2byte("7")))
+	insert("muzly.exe")
+	
+	
 }
 /*
 func TestDHT2(t *testing.T) {
