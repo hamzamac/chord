@@ -1,5 +1,5 @@
 # CHORD
-To statr the Application run the node.go file
+To start the application run the node.go file
 Each instance of a node.go represents an individual node on the ring
 
 #NODE FLAGS
@@ -8,7 +8,7 @@ Each instance of a node.go represents an individual node on the ring
 	-bnode			a string specifying the address (IP:PORT) on a boost node used to join the ring (only used in joining a an exesting ring)
 	
 #NODE OPERATION
-	1 INSERT			allowa insert of a text to the ring for storage
+	1 INSERT			allows insert of a text to the ring for storage
 	2 FIND				requires a hash to find its corresponding valur rome the ring
 	3 FINGER TABLE		prints currents node finger table
 	4 LEAVE				allaows the node to safely leave the ring
