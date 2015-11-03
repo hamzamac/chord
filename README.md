@@ -13,6 +13,6 @@ Each instance of a node.go represents an individual node on the ring
 	3 FINGER TABLE		prints currents node finger table
 	4 LEAVE				allaows the node to safely leave the ring
 	5 UPDATE			updates the fingertable of the current node
-	6 INVENTORY			display the in-memory sorage contents on the current node
+	6 INVENTORY			display the in-memory storage contents on the current node
 	7 DELETE			delet a given value fron the ring using the hash
 
