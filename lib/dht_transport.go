@@ -63,7 +63,7 @@ func(transport *Transport) Send(msg	*Msg) []byte{
 	
 	//response
 	var buf [512]byte
-	conn.SetReadDeadline(time.Now().Add(10000 * time.Millisecond))
+	conn.SetReadDeadline(time.Now().Add(120000 * time.Millisecond))
 	n, err := conn.Read(buf[0:])
 	checkError(err)
 	
