@@ -3,7 +3,7 @@ To start the application run the node.go file
 Each instance of a node.go represents an individual node on the ring
 
 #NODE FLAGS
-	-addrass		a string specifying the address (IP:PORT) of this node
+	-address		a string specifying the address (IP:PORT) of this node
 	-join			a boolean specifying if the node is joining (true) or starting a new ring (false)
 	-bnode			a string specifying the address (IP:PORT) on a boost node used to join the ring (only used in joining a an exesting ring)
 	
