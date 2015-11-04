@@ -14,5 +14,5 @@ RUN go install github.com/hamzamac/chord
 # Run the outyet command by default when the container starts.
 ENTRYPOINT ["/go/bin/"]
 
-# Document that the service listens on port 8080.
+# Document that the service should listen on port 8080.
 EXPOSE 8080
