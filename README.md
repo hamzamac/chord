@@ -1,4 +1,9 @@
 # CHORD
+## About the Project
+The main purpose of this assignment is to build a distributed system by implementing a Distributed Hash Table (DHT) algorithm called Chord. Chord is a distributed lookup protocol designed to locate a node in a network of nodes where a particular data object is stored. 
+## Project Report
+https://1drv.ms/w/s!AmDAJNCe6kNuo2-C8BEuq5-zQLh6
+## Usage
 To start the application run the node.go file
 Each instance of a node.go represents an individual node on the ring
 
